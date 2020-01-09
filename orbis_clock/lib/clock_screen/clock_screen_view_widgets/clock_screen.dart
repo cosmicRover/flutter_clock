@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:orbis_clock/app_constants/app_colors.dart';
 import 'package:orbis_clock/clock_hands/clock_hand_widget/clock_hand_widget.dart';
+import 'package:orbis_clock/flare_animated_widgets/flare_animated_container.dart';
 import 'package:vector_math/vector_math_64.dart' show radians;
 import 'package:flutter/semantics.dart';
 
@@ -10,6 +12,7 @@ class ClockScreen extends StatelessWidget {
   final _viewModel = ClockScreenViewModel();
   final _radiansPerTick = radians(360 / 60);
   final _radiansPerHour = radians(360 / 12);
+  final _colors = AppColors();
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +26,11 @@ class ClockScreen extends StatelessWidget {
             properties: SemanticsProperties(
                 label: 'Orbis clock', value: snapshot.data.now),
             child: Container(
+              color: _colors.outerSpace,
               child: Stack(
                 children: <Widget>[
+                  FlareAnimatedWidget(),
+
                   ///seconds hand
                   ClockHandWidget(Colors.black, 0.9,
                       snapshot.data.seconds * _radiansPerTick, 2),
