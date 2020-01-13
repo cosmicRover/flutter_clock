@@ -20,7 +20,8 @@ class ClockHandPainter extends CustomPainter {
     final linePaint = Paint()
       ..color = color
       ..strokeWidth = lineWidth
-      ..strokeCap = StrokeCap.square;
+      ..isAntiAlias = true
+      ..strokeCap = StrokeCap.round;
 
     canvas.drawLine(center, position, linePaint);
   }

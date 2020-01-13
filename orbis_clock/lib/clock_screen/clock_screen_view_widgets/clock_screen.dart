@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:orbis_clock/app_constants/app_colors.dart';
 import 'package:orbis_clock/clock_hands/clock_hand_widget/clock_hand_widget.dart';
+import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/text_widget.dart';
+import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/text_widget_stack.dart';
 import 'package:orbis_clock/flare_animated_widgets/flare_animated_container.dart';
 import 'package:vector_math/vector_math_64.dart' show radians;
 import 'package:flutter/semantics.dart';
@@ -16,6 +18,9 @@ class ClockScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height;
+    final _width = MediaQuery.of(context).size.width;
+
     return StreamBuilder<ClockDataModel>(
       stream: _viewModel.timeStream,
       builder: (context, snapshot) {
@@ -29,23 +34,23 @@ class ClockScreen extends StatelessWidget {
               color: _colors.outerSpace,
               child: Stack(
                 children: <Widget>[
+                  ///solar system
                   FlareAnimatedWidget(),
 
-                  ///seconds hand
-                  ClockHandWidget(Colors.black, 0.9,
-                      snapshot.data.seconds * _radiansPerTick, 2),
+                  ///numbers
+                  TextWidgetsCollection(),
 
                   ///minute hand
-                  ClockHandWidget(Colors.green, 0.7,
-                      snapshot.data.minute * _radiansPerTick, 4),
+                  ClockHandWidget(_colors.clockHandWhite, 0.95,
+                      snapshot.data.minute * _radiansPerTick, 2),
 
                   ///hour hand
                   ClockHandWidget(
-                      Colors.purple,
-                      0.5,
+                      _colors.clockHandWhite,
+                      0.45,
                       snapshot.data.hour * _radiansPerHour +
                           (snapshot.data.minute / 60),
-                      6),
+                      5),
                 ],
               ),
             ),

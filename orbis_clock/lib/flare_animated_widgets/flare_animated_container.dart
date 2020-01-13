@@ -5,9 +5,9 @@ class FlareAnimatedWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return FlareActor(
-      "assets/flare_animations/demo.flr",
+      "assets/flare_animations/background.flr",
       fit: BoxFit.contain,
-      animation: "demo",
+      animation: "revolution",
     );
   }
 
