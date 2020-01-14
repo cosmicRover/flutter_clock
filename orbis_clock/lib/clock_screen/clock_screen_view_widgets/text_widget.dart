@@ -9,15 +9,14 @@ class TextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+      padding: const EdgeInsets.only(left: 56.0, right: 56.0),
       child: Text(
         '$_text',
         style: GoogleFonts.dosis(
-          fontSize: _size,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-          color: Colors.white
-        ),
+            fontSize: _size,
+            fontWeight: FontWeight.w400,
+            fontStyle: FontStyle.normal,
+            color: Colors.white),
       ),
     );
   }
