@@ -5,23 +5,12 @@ class LoadingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
-      height: 50,
-      width: 100,
-      child: Center(
-        child: Card(
-          color: Colors.black,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextWidget('Loading clock', 45.0),
-              SizedBox(height: 8.0),
-              CircularProgressIndicator()
-            ],
-          ),
-        ),
-      ),
+      child: Stack(
+        children: <Widget>[
+          Image.asset('assets/load.png'),
+          Center(child: TextWidget('Loading Orbis', 45.0)),
+        ],
+      )
     );
   }
 }

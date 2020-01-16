@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/text_widget.dart';
 import 'package:vector_math/vector_math_64.dart' show radians;
 import 'package:flutter/semantics.dart';
 
@@ -42,8 +43,19 @@ class ClockScreen extends StatelessWidget {
 //                  PaintedClockHandWidget(_colors.clockHandWhite, 1,
 //                      snapshot.data.seconds * _radiansPerTick, 2),
 
+                Center(
+                  child: Container(
+                    width: 12,
+                    height: 12,
+                    decoration: BoxDecoration(
+                      color: _colors.clockHandWhite,
+                      shape: BoxShape.circle
+                    ),
+                  ),
+                ),
+
                   ///minute hand
-                  PaintedClockHandWidget(_colors.clockHandWhite, 0.95,
+                  PaintedClockHandWidget(_colors.clockHandWhite, 0.7,
                       snapshot.data.minute * _radiansPerTick, 2),
 
                   ///hour hand

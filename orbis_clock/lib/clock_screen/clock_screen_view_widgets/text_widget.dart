@@ -12,11 +12,17 @@ class TextWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 56.0, right: 56.0),
       child: Text(
         '$_text',
-        style: GoogleFonts.dosis(
-            fontSize: _size,
-            fontWeight: FontWeight.w400,
-            fontStyle: FontStyle.normal,
-            color: Colors.white),
+        style: GoogleFonts.orbitron(
+          fontSize: _size,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+          color: Colors.white
+        ),
+//          GoogleFonts.dosis(
+//              fontSize: _size,
+//              fontWeight: FontWeight.w400,
+//              fontStyle: FontStyle.normal,
+//              color: Colors.white)
       ),
     );
   }
