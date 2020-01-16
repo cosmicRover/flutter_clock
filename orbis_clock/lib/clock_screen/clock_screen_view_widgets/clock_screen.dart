@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/loading_widget.dart';
-import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/text_widget.dart';
 import 'package:vector_math/vector_math_64.dart' show radians;
 import 'package:flutter/semantics.dart';
 
+import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/loading_widget.dart';
 import 'package:orbis_clock/app_constants/app_colors.dart';
-import 'package:orbis_clock/clock_hands/clock_hand_widget/clock_hand_widget.dart';
+import 'package:orbis_clock/clock_hands/clock_hand_widget/painted_clock_hand_widget.dart';
 import 'package:orbis_clock/clock_screen/clock_screen_view_widgets/text_widget_stack.dart';
 import 'package:orbis_clock/flare_animated_widgets/flare_animated_container.dart';
 import 'package:orbis_clock/clock_screen/clock_screen_model/clock_data_model.dart';
@@ -38,18 +37,17 @@ class ClockScreen extends StatelessWidget {
                   ///numbers
                   TextWidgetsStack(),
 
-                  ///debug time, uncomment these
+                  ///debug time and numbers alignment, uncomment these
 //                  Center(child: TextWidget('${snapshot.data.seconds}', 45.0),),
-//
-//                  ClockHandWidget(_colors.clockHandWhite, 1,
+//                  PaintedClockHandWidget(_colors.clockHandWhite, 1,
 //                      snapshot.data.seconds * _radiansPerTick, 2),
 
                   ///minute hand
-                  ClockHandWidget(_colors.clockHandWhite, 0.95,
+                  PaintedClockHandWidget(_colors.clockHandWhite, 0.95,
                       snapshot.data.minute * _radiansPerTick, 2),
 
                   ///hour hand
-                  ClockHandWidget(
+                  PaintedClockHandWidget(
                       _colors.clockHandWhite,
                       0.45,
                       snapshot.data.hour * _radiansPerHour +
