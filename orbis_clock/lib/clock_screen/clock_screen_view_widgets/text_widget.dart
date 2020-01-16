@@ -13,16 +13,10 @@ class TextWidget extends StatelessWidget {
       child: Text(
         '$_text',
         style: GoogleFonts.orbitron(
-          fontSize: _size,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-          color: Colors.white
-        ),
-//          GoogleFonts.dosis(
-//              fontSize: _size,
-//              fontWeight: FontWeight.w400,
-//              fontStyle: FontStyle.normal,
-//              color: Colors.white)
+            fontSize: _size,
+            fontWeight: FontWeight.w400,
+            fontStyle: FontStyle.normal,
+            color: Colors.white),
       ),
     );
   }

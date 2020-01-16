@@ -1,3 +1,3 @@
-abstract class AbstractClockViewModel{
+abstract class AbstractClockViewModel {
   void dispose();
 }

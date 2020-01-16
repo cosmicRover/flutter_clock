@@ -5,7 +5,7 @@ import 'package:orbis_clock/clock_screen/clock_screen_view_model/abstract_clock_
 
 class ClockScreenViewModel implements AbstractClockViewModel {
   ClockScreenViewModel() {
-    Timer.periodic(Duration(seconds: 1), (_){
+    Timer.periodic(Duration(seconds: 1), (_) {
       _controller.sink.add(ClockDataModel.getFormattedData(DateTime.now()));
     });
   }
