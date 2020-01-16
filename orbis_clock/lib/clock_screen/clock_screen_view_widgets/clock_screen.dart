@@ -10,11 +10,22 @@ import 'package:orbis_clock/flare_animated_widgets/flare_animated_container.dart
 import 'package:orbis_clock/clock_screen/clock_screen_model/clock_data_model.dart';
 import 'package:orbis_clock/clock_screen/clock_screen_view_model/clock_screen_view_model.dart';
 
-class ClockScreen extends StatelessWidget {
+class ClockScreen extends StatefulWidget {
+  @override
+  _ClockScreenState createState() => _ClockScreenState();
+}
+
+class _ClockScreenState extends State<ClockScreen> {
   final _viewModel = ClockScreenViewModel();
   final _radiansPerTick = radians(360 / 60);
   final _radiansPerHour = radians(360 / 12);
   final _colors = AppColors();
+
+  @override
+  void dispose() {
+    _viewModel.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +50,7 @@ class ClockScreen extends StatelessWidget {
                   ///numbers
                   TextWidgetsStack(),
 
-                  ///numbers alignment, uncomment these and import TextWidget package
+                  ///debug numbers alignment, uncomment these and import TextWidget package
 //                  Center(child: TextWidget('${snapshot.data.seconds}', 45.0),),
 //                  PaintedClockHandWidget(_colors.clockHandWhite, 1,
 //                      snapshot.data.seconds * _radiansPerTick, 2),
